@@ -29,8 +29,8 @@ public class QueijoRepository {
         q2.setQuantidade(50);
         q2.setValor(10);
 
-        this.queijos.add(q1);
-        this.queijos.add(q2);
+        inserir(q1);
+        inserir(q2);
     }
 
     public static QueijoRepository getCurrentInstance() {

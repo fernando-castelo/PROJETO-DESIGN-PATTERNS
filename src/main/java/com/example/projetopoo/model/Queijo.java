@@ -5,9 +5,7 @@ public class Queijo {
     int id;
     String nome;
     int quantidade;
-
     int valor;
-
     @Override
     public String toString() {
         return "nome='" + nome + '\'' +

@@ -8,8 +8,6 @@ public class Condimentos {
 
     int quantidade;
 
-    int valor;
-
     public int getId() {
         return id;
     }
@@ -34,11 +32,4 @@ public class Condimentos {
         this.quantidade = quantidade;
     }
 
-    public int getValor() {
-        return valor;
-    }
-
-    public void setValor(int valor) {
-        this.valor = valor;
-    }
 }
