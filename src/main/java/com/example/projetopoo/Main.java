@@ -14,8 +14,6 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static Tamanho tamanho1 = Tamanho.MEDIA;
-
     public static ConcretePizzaBuilder construtor = new ConcretePizzaBuilder();
 
     public static QueijoRepository queijoRepositorio = new QueijoRepository();
