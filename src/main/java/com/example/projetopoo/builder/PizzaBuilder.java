@@ -1,9 +1,6 @@
 package com.example.projetopoo.builder;
 
-import com.example.projetopoo.model.Condimentos;
-import com.example.projetopoo.model.Pizza;
-import com.example.projetopoo.model.Queijo;
-import com.example.projetopoo.model.Tamanho;
+import com.example.projetopoo.model.*;
 
 import java.util.List;
 
@@ -15,7 +12,11 @@ public interface PizzaBuilder {
 
     public void setTamanho(Tamanho tamanho);
 
+    public void setSabor(Sabor sabor);
+
     public void setCondimentos(List<Condimentos> condimentos);
+
+    public void setPreco();
 
     public Pizza getProduct();
 }

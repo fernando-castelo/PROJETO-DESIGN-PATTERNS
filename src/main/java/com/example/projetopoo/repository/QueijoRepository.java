@@ -20,14 +20,14 @@ public class QueijoRepository {
         q1.setId(1);
         q1.setNome("Mussarela");
         q1.setQuantidade(50);
-        q1.setValor(5);
+        q1.setValor(2);
 
         Queijo q2 = new Queijo();
 
         q2.setId(2);
         q2.setNome("Provolone");
         q2.setQuantidade(50);
-        q2.setValor(10);
+        q2.setValor(3);
 
         inserir(q1);
         inserir(q2);

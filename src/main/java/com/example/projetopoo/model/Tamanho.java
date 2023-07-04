@@ -2,22 +2,22 @@ package com.example.projetopoo.model;
 
 public enum Tamanho {
 
-    GRANDE("GRANDE", 60), MEDIA("MEDIA", 40), PEQUENA("PEQUENA", 30);
+    GRANDE("GRANDE", 8), MEDIA("MEDIA", 6), PEQUENA("PEQUENA", 4);
 
     private String texto;
 
-    private int valor;
+    private int quantidadeFatias;
 
-    Tamanho(String texto, int valor) {
+    Tamanho(String texto, int unidades) {
         this.texto = texto;
-        this.valor = valor;
+        this.quantidadeFatias = unidades;
     }
 
     public String getTexto() {
         return texto;
     }
 
-    public int getValor() {
-        return valor;
+    public int getQuantidadeFatias() {
+        return quantidadeFatias;
     }
 }

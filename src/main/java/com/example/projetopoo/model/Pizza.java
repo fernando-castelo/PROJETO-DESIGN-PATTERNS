@@ -7,6 +7,25 @@ public class Pizza {
     private Tamanho tamanho;
     private Queijo queijo;
     private List<Condimentos> condimentos;
+    private Sabor sabor;
+
+    private Double preco;
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
+
+    public Sabor getSabor() {
+        return sabor;
+    }
+
+    public void setSabor(Sabor sabor) {
+        this.sabor = sabor;
+    }
 
     public List<Condimentos> getCondimentos() {
         return condimentos;

@@ -1,10 +1,7 @@
 package com.example.projetopoo;
 
 import com.example.projetopoo.builder.ConcretePizzaBuilder;
-import com.example.projetopoo.model.Condimentos;
-import com.example.projetopoo.model.Pizza;
-import com.example.projetopoo.model.Queijo;
-import com.example.projetopoo.model.Tamanho;
+import com.example.projetopoo.model.*;
 import com.example.projetopoo.repository.CondimentoRepository;
 import com.example.projetopoo.repository.QueijoRepository;
 
@@ -25,8 +22,10 @@ public class Main {
     public static Pizza build() {
         construtor.reset();
         construtor.setTamanho(selecionarTamanho());
+        construtor.setSabor(selecionarSabor());
         construtor.setQueijo(selecionarQueijo());
         construtor.setCondimentos(selecionarCondimentos());
+        construtor.setPreco();
         return construtor.getProduct();
     }
 
@@ -51,6 +50,29 @@ public class Main {
 
         return tamanhoSelecionado;
 
+    }
+
+    public static Sabor selecionarSabor() {
+
+        Sabor saborSelecionado;
+
+        List<String> sabores = new ArrayList<>();
+
+        int count = 1;
+        for(Sabor myVar : Sabor.values()) {
+            System.out.println(count + " - " + myVar.getNome());
+            count+=1;
+            sabores.add(myVar.getNome());
+        }
+
+        System.out.println("Selecione um sabor para a pizza: ");
+        int opcaoSelecionada = (sc.nextInt()) - 1;
+
+        System.out.println(sabores.get(opcaoSelecionada));
+
+        saborSelecionado = Sabor.valueOf(sabores.get(opcaoSelecionada));
+
+        return saborSelecionado;
     }
 
 
@@ -138,7 +160,8 @@ public class Main {
         Pizza pizza1 = build();
 
         System.out.println("Pizza: " + pizza1.getQueijo().getNome());
-        System.out.println("Tamanho: " + pizza1.getTamanho().getTexto() + " Valor: " + (pizza1.getTamanho().getValor() + pizza1.getQueijo().getValor()));
+        System.out.println("Sabor: " + pizza1.getSabor());
+        System.out.println("Tamanho: " + pizza1.getTamanho().getTexto() + " Valor: " + pizza1.getPreco());
 
         System.out.println("Condimentos : ");
         for(int i = 0; i < pizza1.getCondimentos().size(); i++) {
