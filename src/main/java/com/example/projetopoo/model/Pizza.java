@@ -8,7 +8,6 @@ public class Pizza {
     private Queijo queijo;
     private List<Condimentos> condimentos;
     private Sabor sabor;
-
     private Double preco;
 
     public Double getPreco() {

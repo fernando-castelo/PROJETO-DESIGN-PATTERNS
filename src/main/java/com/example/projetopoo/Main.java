@@ -4,6 +4,9 @@ import com.example.projetopoo.builder.ConcretePizzaBuilder;
 import com.example.projetopoo.model.*;
 import com.example.projetopoo.repository.CondimentoRepository;
 import com.example.projetopoo.repository.QueijoRepository;
+import com.example.projetopoo.strategy.Context;
+import com.example.projetopoo.strategy.PagamentoStrategy;
+import com.example.projetopoo.strategy.PixStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -167,5 +170,24 @@ public class Main {
         for(int i = 0; i < pizza1.getCondimentos().size(); i++) {
             System.out.println(pizza1.getCondimentos().get(i).getNome());
         }
+
+        Double valorPizza = pizza1.getPreco();
+
+        CartaoCredito cartao = new CartaoCredito();
+
+        cartao.setId(1);
+        cartao.setNome("Artorias");
+        cartao.setNumeroCartao("4546446546");
+        cartao.setDataDeExpiracao("28/08/4343");
+        cartao.setCvv("567");
+
+        PagamentoStrategy strategy = new PixStrategy();
+
+        Context contexto = new Context();
+
+        contexto.setPagamentoStrategy(strategy);
+
+        contexto.executeStrategy(valorPizza);
+
     }
 }
