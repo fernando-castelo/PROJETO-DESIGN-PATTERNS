@@ -189,5 +189,11 @@ public class Main {
 
         contexto.executeStrategy(valorPizza);
 
+        Pedido pedido = new Pedido(1, pizza1);
+
+        pedido.nextStatus();
+
+        pedido.getStatus().printStatus();
+
     }
 }
