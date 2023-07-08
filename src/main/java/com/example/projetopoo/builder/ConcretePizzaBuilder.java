@@ -1,9 +1,11 @@
 package com.example.projetopoo.builder;
 
 import com.example.projetopoo.model.*;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ConcretePizzaBuilder implements PizzaBuilder {
 
     private Pizza pizza;

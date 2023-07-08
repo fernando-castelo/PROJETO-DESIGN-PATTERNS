@@ -1,10 +1,12 @@
 package com.example.projetopoo.repository;
 
 import com.example.projetopoo.model.Queijo;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class QueijoRepository {
 
     private static QueijoRepository myself = null;

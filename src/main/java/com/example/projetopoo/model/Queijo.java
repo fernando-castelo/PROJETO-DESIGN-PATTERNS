@@ -1,7 +1,6 @@
 package com.example.projetopoo.model;
 
 public class Queijo {
-
     int id;
     String nome;
     int quantidade;
