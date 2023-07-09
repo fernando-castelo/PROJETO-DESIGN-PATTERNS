@@ -48,32 +48,9 @@
             </select>
         </div>
 
-        <button type="submit" id="botao-voltar">Enter</button>
+        <input type="submit" id="botao-confirmar" value="Enter"></button>
 
     </form>
-
-    <div th:if="${pizza}">
-        <h1 th:text="${textoPizza}"></h1>
-        <a th:href="@{/pagamento/oi}">Ir para pagamento</a>
-
-    </div>
-
-      <div id="confirmModal" class="modal fade" role="dialog">
-          <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                  <div class="modal-header justify-content-center">
-                      <h4 class="modal-title">Confirmar exclusão</h4>
-                  </div>
-                  <div class="modal-body">
-                      <p>Você tem certeza que deseja excluir o apenado <strong><span id="confirmNome"></span></strong>?</p>
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
-                      <a id="botao-confirmar-remover" href="#" class="btn btn-danger">Excluir</a>
-                  </div>
-              </div>
-          </div>
-      </div>
 
 </body>
 

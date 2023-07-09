@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div th:if="${pizza}">
+        <h1 th:text="${textoPizza}"></h1>
+        <h1>Confirmar Pedido</h1>
+
+        <button>
+            <a th:href="@{/pagamento}">Ir para pagamento</a>
+        </button>
+
+        <button>
+            <a th:href="@{/mainPage}">Cancelar Pedido</a>
+        </button>
+    </div>
+
+</body>
+</html>

@@ -53,22 +53,10 @@ public class PizzaController {
                                  @RequestParam(value = "saborSelect", required = false) Sabor sabor,
                                  Model model) {
 
-        System.out.println("TESTEE : " + tamanho.getTexto() + " " + " " + sabor.getNome() + " " + sabor.getValorFatia());
-
-        tamanhoRepo.inicializar();
-        saborRepo.inicializar();
-
-        Queijo queijoSelecionado = queijoRepo.ler(idQueijo);
-
-        model.addAttribute("listaTamanho", tamanhoRepo.lerTudo());
-
+        Queijo queijoSelecionado = queijoRepo.ler(idQueijo);;
         model.addAttribute("tamanhoSelecionado", tamanho);
         model.addAttribute("queijoSelecionado", queijoSelecionado);
-
         model.addAttribute("saborSelecionado", sabor);
-
-        model.addAttribute("listaQueijos", queijoRepo.lerTudo());
-        model.addAttribute("listaSabor", saborRepo.lerTudo());
 
         pizzaBuilder.reset();
         pizzaBuilder.setTamanho(tamanho);
@@ -77,22 +65,65 @@ public class PizzaController {
         pizzaBuilder.setPreco();
         Pizza pizza = pizzaBuilder.getProduct();
 
-        System.out.println("pizza: " + pizza.getSabor().getNome() + " " + pizza.getQueijo().getNome() +  "" + pizza.getTamanho().getTexto());
-
         model.addAttribute("pizza", pizza);
 
         String texto =  "Pizza: "
-                        + pizza.getTamanho().getTexto()
-                        + " " + pizza.getQueijo().getNome()
-                        + " " + pizza.getSabor().getNome()
-                        + " " + pizza.getPreco();
+                + pizza.getTamanho().getTexto()
+                + " " + pizza.getQueijo().getNome()
+                + " " + pizza.getSabor().getNome()
+                + " " + pizza.getPreco();
 
         model.addAttribute("textoPizza", texto);
 
-        return "index";
+        return "confirmarPedido";
     }
 
-    @GetMapping("/pagamento/oi") public String confirmarPagamento() {
+//    @PostMapping("armazenarPizza")
+//    public String armazenarPizza(@RequestParam(value = "tamanhoSelect", required = false) Tamanho tamanho,
+//                                 @RequestParam(value = "queijoSelect", required = false) int idQueijo,
+//                                 @RequestParam(value = "saborSelect", required = false) Sabor sabor,
+//                                 Model model) {
+//
+//        System.out.println("TESTEE : " + tamanho.getTexto() + " " + " " + sabor.getNome() + " " + sabor.getValorFatia());
+//
+//        tamanhoRepo.inicializar();
+//        saborRepo.inicializar();
+//
+//        Queijo queijoSelecionado = queijoRepo.ler(idQueijo);
+//
+//        model.addAttribute("listaTamanho", tamanhoRepo.lerTudo());
+//
+//        model.addAttribute("tamanhoSelecionado", tamanho);
+//        model.addAttribute("queijoSelecionado", queijoSelecionado);
+//
+//        model.addAttribute("saborSelecionado", sabor);
+//
+//        model.addAttribute("listaQueijos", queijoRepo.lerTudo());
+//        model.addAttribute("listaSabor", saborRepo.lerTudo());
+//
+//        pizzaBuilder.reset();
+//        pizzaBuilder.setTamanho(tamanho);
+//        pizzaBuilder.setQueijo(queijoSelecionado);
+//        pizzaBuilder.setSabor(sabor);
+//        pizzaBuilder.setPreco();
+//        Pizza pizza = pizzaBuilder.getProduct();
+//
+//        System.out.println("pizza: " + pizza.getSabor().getNome() + " " + pizza.getQueijo().getNome() +  "" + pizza.getTamanho().getTexto());
+//
+//        model.addAttribute("pizza", pizza);
+//
+//        String texto =  "Pizza: "
+//                        + pizza.getTamanho().getTexto()
+//                        + " " + pizza.getQueijo().getNome()
+//                        + " " + pizza.getSabor().getNome()
+//                        + " " + pizza.getPreco();
+//
+//        model.addAttribute("textoPizza", texto);
+//
+//        return "confirmarPedido";
+//    }
+
+    @GetMapping("/pagamento") public String confirmarPagamento() {
         return "pagamento";
     }
 }
