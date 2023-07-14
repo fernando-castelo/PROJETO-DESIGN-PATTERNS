@@ -7,7 +7,9 @@ import com.example.projetopoo.repository.QueijoRepository;
 import com.example.projetopoo.strategy.Context;
 import com.example.projetopoo.strategy.PagamentoStrategy;
 import com.example.projetopoo.strategy.PixStrategy;
+import com.example.projetopoo.view.TelaPedidos;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -160,6 +162,16 @@ public class Main {
 
     public static void main(String[] args) {
 
+
+
+//inicializacao do painel incial da GUI
+        TelaPedidos primeira = new TelaPedidos();
+        primeira.setContentPane(primeira.panel1);
+        primeira.setTitle("Inicio");
+        primeira.setSize(500,500);
+        primeira.setVisible(true);
+        primeira.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         Pizza pizza1 = build();
 
         System.out.println("Pizza: " + pizza1.getQueijo().getNome());
@@ -197,3 +209,4 @@ public class Main {
 
     }
 }
+
