@@ -15,6 +15,11 @@ public enum Tamanho {
         this.quantidadeFatias = unidades;
     }
 
+    @Override
+    public String toString() {
+        return "Tamanho: " + texto;
+    }
+
     public String getTexto() {
         return texto;
     }

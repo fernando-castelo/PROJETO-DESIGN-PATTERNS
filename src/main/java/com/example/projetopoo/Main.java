@@ -10,9 +10,11 @@ import com.example.projetopoo.strategy.PixStrategy;
 import com.example.projetopoo.view.TelaPedidos;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
 
@@ -160,11 +162,25 @@ public class Main {
     }
 
 
+
+//    public static JComboBox<Tamanho> SetarComboBoxTamanho() {
+//
+//        JComboBox<Tamanho> comboBoxTamanhos = new JComboBox<>();
+//
+//        comboBoxTamanhos = new JComboBox<>();
+//
+//        for (Tamanho tamanho : Tamanho.values()) {
+//            comboBoxTamanhos.addItem(tamanho);
+//        }
+//
+//        return comboBoxTamanhos;
+//
+//
+//    }
+
+
     public static void main(String[] args) {
 
-
-
-//inicializacao do painel incial da GUI
         TelaPedidos primeira = new TelaPedidos();
         primeira.setContentPane(primeira.panel1);
         primeira.setTitle("Inicio");
@@ -172,41 +188,59 @@ public class Main {
         primeira.setVisible(true);
         primeira.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        Pizza pizza1 = build();
 
-        System.out.println("Pizza: " + pizza1.getQueijo().getNome());
-        System.out.println("Sabor: " + pizza1.getSabor());
-        System.out.println("Tamanho: " + pizza1.getTamanho().getTexto() + " Valor: " + pizza1.getPreco());
+//        Pizza pizza1 = build();
+//        primeira.comboBox1.removeAllItems();
+//        primeira.comboBox1.addItem();
 
-        System.out.println("Condimentos : ");
-        for(int i = 0; i < pizza1.getCondimentos().size(); i++) {
-            System.out.println(pizza1.getCondimentos().get(i).getNome());
-        }
 
-        Double valorPizza = pizza1.getPreco();
 
-        CartaoCredito cartao = new CartaoCredito();
 
-        cartao.setId(1);
-        cartao.setNome("Artorias");
-        cartao.setNumeroCartao("4546446546");
-        cartao.setDataDeExpiracao("28/08/4343");
-        cartao.setCvv("567");
+//        primeira.comboBox1 = new JComboBox<Tamanho>();
+//        primeira.comboBox1 = SetarComboBoxTamanho();
 
-        PagamentoStrategy strategy = new PixStrategy();
+//        primeira.comboBox5 = new JComboBox<>();
 
-        Context contexto = new Context();
+//        primeira.panel1.add(primeira.comboBox1);
+//        primeira.panel1.add(primeira.comboBox5);
 
-        contexto.setPagamentoStrategy(strategy);
 
-        contexto.executeStrategy(valorPizza);
 
-        Pedido pedido = new Pedido(1, pizza1);
 
-        pedido.nextStatus();
 
-        pedido.getStatus().printStatus();
+
+//        System.out.println("Pizza: " + pizza1.getQueijo().getNome());
+//        System.out.println("Sabor: " + pizza1.getSabor());
+//        System.out.println("Tamanho: " + pizza1.getTamanho().getTexto() + " Valor: " + pizza1.getPreco());
+//
+//        System.out.println("Condimentos : ");
+//        for(int i = 0; i < pizza1.getCondimentos().size(); i++) {
+//            System.out.println(pizza1.getCondimentos().get(i).getNome());
+//        }
+//
+//        Double valorPizza = pizza1.getPreco();
+//
+//        CartaoCredito cartao = new CartaoCredito();
+//
+//        cartao.setId(1);
+//        cartao.setNome("Artorias");
+//        cartao.setNumeroCartao("4546446546");
+//        cartao.setDataDeExpiracao("28/08/4343");
+//        cartao.setCvv("567");
+//
+//        PagamentoStrategy strategy = new PixStrategy();
+//
+//        Context contexto = new Context();
+//
+//        contexto.setPagamentoStrategy(strategy);
+//
+//        contexto.executeStrategy(valorPizza);
+//
+//        Pedido pedido = new Pedido(1, pizza1);
+//
+//        pedido.nextStatus();
+//
+//        pedido.getStatus().printStatus();
 
     }
 }
-

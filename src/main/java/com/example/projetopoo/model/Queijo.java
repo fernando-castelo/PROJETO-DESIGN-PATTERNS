@@ -7,9 +7,7 @@ public class Queijo {
     int valor;
     @Override
     public String toString() {
-        return "nome='" + nome + '\'' +
-                ", quantidade=" + quantidade +
-                ", valor=" + valor;
+        return nome;
     }
 
     public int getValor() {

@@ -32,4 +32,8 @@ public class Condimentos {
         this.quantidade = quantidade;
     }
 
+    @Override
+    public String toString() {
+        return nome;
+    }
 }
