@@ -8,5 +8,5 @@ public interface StatusPedido {
 
     public void nextStatus(Pedido pedido);
 
-    public void printStatus();
+    public String printStatus();
 }

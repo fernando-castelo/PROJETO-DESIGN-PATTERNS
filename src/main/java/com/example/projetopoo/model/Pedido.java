@@ -14,6 +14,13 @@ public class Pedido {
         this.pizza = pizza;
     }
 
+    public Pedido(Pizza pizza) {
+        this.pizza = pizza;
+    }
+
+    public Pedido() {
+    }
+
     private StatusPedido status = new StatusPendente();
 
     public void previousStatus() {

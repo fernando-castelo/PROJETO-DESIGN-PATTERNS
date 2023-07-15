@@ -3,8 +3,8 @@ package com.example.projetopoo.view;
 import com.example.projetopoo.builder.ConcretePizzaBuilder;
 import com.example.projetopoo.model.*;
 import com.example.projetopoo.repository.CondimentoRepository;
+import com.example.projetopoo.repository.PedidoRepository;
 import com.example.projetopoo.repository.QueijoRepository;
-import com.example.projetopoo.repository.TamanhoRepository;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -39,6 +39,8 @@ public class TelaPedidos extends JFrame {
     public static Sabor saborEscolhido;
 
     public static Pizza pizzaGerada;
+
+    public static PedidoRepository pedidoRepo;
 
     public Pizza build() {
         pizzaBuilder.reset();
@@ -87,10 +89,17 @@ public TelaPedidos() {
             saborEscolhido = (Sabor) comboBox3.getSelectedItem();
 //            Condimentos condimentos = (Condimentos) comboBox4.getSelectedItem();
 
-
             pizzaGerada = build();
 
             String preco = String.valueOf(pizzaGerada.getPreco());
+
+            Pedido pedido = new Pedido();
+
+            pedido.setPizza(pizzaGerada);
+
+            pedidoRepo.getCurrentInstance().inserir(pedido);
+
+            System.out.println("AIASIAI: " + pedido.getId());
 
             System.out.println("PIZZA: " + pizzaGerada.getPreco() + " " + pizzaGerada.getSabor() + " " + pizzaGerada.getTamanho().getTexto());
 
@@ -101,13 +110,15 @@ public TelaPedidos() {
 //            System.out.println("CONDIMENTOO: " + condimentos.getNome() + " " + condimentos.getQuantidade());
 
             TelaPagamento pagamento = new TelaPagamento();
-            pagamento.setContentPane(pagamento.panel2);
+            pagamento.setContentPane(pagamento.painel2);
             pagamento.setTitle("Inicio");
             pagamento.setSize(400,400);
             pagamento.setVisible(true);
             pagamento.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            pagamento.status2.setText(pedido.getStatus().printStatus());
             pagamento.valorPagar.setText("R$ " + preco);
-            dispose();
+
+            TelaAcomp acomp = new TelaAcomp();
         }
     });
     voltaButton.addMouseListener(new MouseAdapter() {

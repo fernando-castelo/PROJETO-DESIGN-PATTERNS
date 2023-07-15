@@ -15,7 +15,8 @@ public class StatusProducao implements StatusPedido {
     }
 
     @Override
-    public void printStatus() {
-        System.out.println("Pedido em produção");
+    public String printStatus() {
+
+        return  "Pedido em produção";
     }
 }

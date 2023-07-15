@@ -15,8 +15,8 @@ public class StatusConfirmaPagamento implements StatusPedido {
     }
 
     @Override
-    public void printStatus() {
-        System.out.println("Aguardando confirmação do pagamento");
+    public String  printStatus() {
+        return "Aguardando confirmação do pagamento";
     }
 }
 

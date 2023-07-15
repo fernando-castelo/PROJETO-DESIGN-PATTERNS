@@ -16,8 +16,9 @@ public class StatusConcluido implements StatusPedido {
     }
 
     @Override
-    public void printStatus() {
-        System.out.println("Pedido Concluido!");
+    public String printStatus() {
+
+        return "Pedido Concluido!";
     }
 }
 

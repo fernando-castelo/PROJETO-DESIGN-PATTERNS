@@ -181,15 +181,18 @@ public class Main {
 
     public static void main(String[] args) {
 
+//        Pizza pizza1 = build();
+//
+//        Pedido pedido1 = new Pedido(1, pizza1);
+
         TelaPedidos primeira = new TelaPedidos();
         primeira.setContentPane(primeira.panel1);
         primeira.setTitle("Inicio");
         primeira.setSize(500,500);
         primeira.setVisible(true);
         primeira.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        primeira.status.setText(String.valueOf(pedido1.getStatus()));
 
-
-//        Pizza pizza1 = build();
 //        primeira.comboBox1.removeAllItems();
 //        primeira.comboBox1.addItem();
 

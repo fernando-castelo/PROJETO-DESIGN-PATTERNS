@@ -1,15 +1,24 @@
 package com.example.projetopoo.view;
 
+import com.example.projetopoo.model.Pedido;
+import com.example.projetopoo.repository.PedidoRepository;
+
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.LocalTime;
 
 public class TelaPagamento extends JFrame {
     public JComboBox comboBox1;
     public JButton finalizarButton;
-    public JPanel panel2;
+    public JPanel painel2;
     private JButton cancelarButton;
     public JLabel valorPagar;
+    public JLabel status2;
+    private JLabel teste123;
+
+    private PedidoRepository pedidoRepo;
+
 
     public TelaPagamento() {
 
@@ -22,6 +31,10 @@ public class TelaPagamento extends JFrame {
             acompanha.setSize(400,400);
             acompanha.setVisible(true);
             acompanha.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            acompanha.progressBar1.setValue(10);
+            Pedido pedido1 = pedidoRepo.getCurrentInstance().ler(0);
+            System.out.println("tedteee: " + pedido1.getPizza().getPreco()+ " " + pedido1.getStatus().printStatus());
+            dispose();
 
         }
     });

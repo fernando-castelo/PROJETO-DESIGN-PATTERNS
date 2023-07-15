@@ -14,7 +14,7 @@ public class StatusPendente implements StatusPedido{
     }
 
     @Override
-    public void printStatus() {
-        System.out.println("Pedido em andamento");
+    public String printStatus() {
+        return "Pedido em andamento";
     }
 }
