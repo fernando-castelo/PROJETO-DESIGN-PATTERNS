@@ -22,6 +22,26 @@ public class TelaPagamento extends JFrame {
 
     public TelaPagamento() {
 
+        System.out.println("TESTEEE " + comboBox1.getSelectedIndex());
+
+        String valor = valorPagar.getText();
+
+//            int valorParse = Integer.parseInt(valor);
+
+        System.out.println("VALOR:  " + valor);
+
+        switch (comboBox1.getSelectedIndex()){
+            case 0:
+                System.out.println("CREDITO");
+                break;
+            case 1:
+                System.out.println("DEBITO");
+                break;
+            case 2:
+                System.out.println("PIX");
+                break;
+        }
+
     finalizarButton.addMouseListener(new MouseAdapter() {
         @Override
         public void mouseClicked(MouseEvent e) {
