@@ -30,7 +30,8 @@ public class PedidoRepository {
     }
 
     public void inserir(Pedido p) {
-        p.setId(lastIndex++);
+        p.setId(lastIndex);
+        lastIndex++;
         this.pedidos.add(p);
     }
 

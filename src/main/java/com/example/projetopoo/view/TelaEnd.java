@@ -7,7 +7,9 @@ import java.awt.event.MouseEvent;
 public class TelaEnd extends JFrame {
     public JPanel panel4;
     private JButton novoPedidoButton;
-public TelaEnd() {
+    public JLabel statusField;
+
+    public TelaEnd() {
     novoPedidoButton.addMouseListener(new MouseAdapter() {
         @Override
         public void mouseClicked(MouseEvent e) {

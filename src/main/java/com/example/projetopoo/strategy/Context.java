@@ -8,7 +8,8 @@ public class Context {
         this.pagamentoStrategy = pagamentoStrategy;
     }
 
-    public void executeStrategy(Double preco) {
-        pagamentoStrategy.pagar(preco);
+    public String executeStrategy(Double preco) {
+
+        return  pagamentoStrategy.pagar(preco);
     }
 }

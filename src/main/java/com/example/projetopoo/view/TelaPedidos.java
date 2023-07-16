@@ -99,16 +99,6 @@ public TelaPedidos() {
 
             pedidoRepo.getCurrentInstance().inserir(pedido);
 
-            System.out.println("AIASIAI: " + pedido.getId());
-
-            System.out.println("PIZZA: " + pizzaGerada.getPreco() + " " + pizzaGerada.getSabor() + " " + pizzaGerada.getTamanho().getTexto());
-
-//
-//            System.out.println("TESTEE: " +  tamanho.getTexto() + " " + tamanho.getQuantidadeFatias());
-//            System.out.println("QUEIJOO: "  + queijo.getNome() + " " + queijo.getValor());
-//            System.out.println("TESTEE: " + sabor.getNome() + " " + sabor.getValorFatia());
-//            System.out.println("CONDIMENTOO: " + condimentos.getNome() + " " + condimentos.getQuantidade());
-
             TelaPagamento pagamento = new TelaPagamento();
             pagamento.setContentPane(pagamento.painel2);
             pagamento.setTitle("Inicio");
@@ -116,7 +106,7 @@ public TelaPedidos() {
             pagamento.setVisible(true);
             pagamento.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             pagamento.status2.setText(pedido.getStatus().printStatus());
-            pagamento.valorPagar.setText("R$ " + preco);
+            pagamento.valorPagar.setText(preco);
 
             TelaAcomp acomp = new TelaAcomp();
         }
