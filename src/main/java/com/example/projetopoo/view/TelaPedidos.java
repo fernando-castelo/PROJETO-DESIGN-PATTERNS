@@ -107,8 +107,7 @@ public TelaPedidos() {
             pagamento.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             pagamento.status2.setText(pedido.getStatus().printStatus());
             pagamento.valorPagar.setText(preco);
-
-            TelaAcomp acomp = new TelaAcomp();
+//            TelaAcomp acomp = new TelaAcomp();
         }
     });
     voltaButton.addMouseListener(new MouseAdapter() {
@@ -121,6 +120,7 @@ public TelaPedidos() {
             telaEnd.setVisible(true);
             telaEnd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             dispose();
+
 
         }
     });

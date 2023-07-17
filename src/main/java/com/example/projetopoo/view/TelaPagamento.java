@@ -31,7 +31,7 @@ public class TelaPagamento extends JFrame {
 
             TelaFinalizadora telaFinalizadora = new TelaFinalizadora();
             telaFinalizadora.setContentPane(telaFinalizadora.PanelPrincipal);
-            telaFinalizadora.setSize(400,400);
+            telaFinalizadora.setSize(500,400);
             telaFinalizadora.setVisible(true);
 
 
@@ -47,25 +47,33 @@ public class TelaPagamento extends JFrame {
                     telaFinalizadora.strategyField.setText(pagamentoSelecionado);
 
                     telaFinalizadora.valorField.setText(String.valueOf(valor));
+                    telaFinalizadora.PanelPix.setVisible(false);
                     telaFinalizadora.finalizarButton.addMouseListener(new MouseAdapter() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
-
                             System.out.println(pagamento.executeStrategy(valor));
 
                             TelaAcomp telaAcomp = new TelaAcomp();
                             telaAcomp.setContentPane(telaAcomp.panel3);
-                            telaAcomp.setSize(400, 400);
+                            telaAcomp.setSize(600, 400);
                             telaAcomp.setVisible(true);
 
                             pedido1.nextStatus();
                             telaAcomp.statusField.setText(pedido1.getStatus().printStatus());
                             telaAcomp.idField.setText(String.valueOf(pedido1.getId()));
                             telaAcomp.pagamentoField.setText(pagamento.executeStrategy(valor));
+                            telaFinalizadora.dispose();
+                            while (telaAcomp.progressBar1.getPercentComplete()==100){
+                                telaAcomp.cont++;
+                                telaAcomp.progressBar1.setValue(telaAcomp.cont);
+                            }
+                            dispose();
+
                         }
                     });
                     break;
                 case 1:
+
                     CartaoDebitoStrategy pagamentoCartao1 = new CartaoDebitoStrategy();
                     pagamento.setPagamentoStrategy(pagamentoCartao1);
                     pedido1.nextStatus();
@@ -74,26 +82,37 @@ public class TelaPagamento extends JFrame {
 
                     String pagamentoSelecionado1 = (String) comboBox1.getSelectedItem();
                     telaFinalizadora.strategyField.setText(pagamentoSelecionado1);
+                    telaFinalizadora.PanelPix.setVisible(false);
 
                     telaFinalizadora.valorField.setText(String.valueOf(valor));
                     telaFinalizadora.finalizarButton.addMouseListener(new MouseAdapter() {
+
                         @Override
                         public void mouseClicked(MouseEvent e) {
+                            dispose();
                             System.out.println(pagamento.executeStrategy(valor));
 
                             TelaAcomp telaAcomp = new TelaAcomp();
                             telaAcomp.setContentPane(telaAcomp.panel3);
-                            telaAcomp.setSize(400, 400);
+                            telaAcomp.setSize(600, 400);
                             telaAcomp.setVisible(true);
 
                             pedido1.nextStatus();
                             telaAcomp.statusField.setText(pedido1.getStatus().printStatus());
                             telaAcomp.idField.setText(String.valueOf(pedido1.getId()));
                             telaAcomp.pagamentoField.setText(pagamento.executeStrategy(valor));
+                            telaFinalizadora.dispose();
+                            while (telaAcomp.progressBar1.getPercentComplete()==100){
+                                telaAcomp.cont++;
+                                telaAcomp.progressBar1.setValue(telaAcomp.cont);
+                            }
+                            dispose();
+
                         }
                     });
                     break;
                 case 2:
+
                     PixStrategy pagamentoCartao2 = new PixStrategy();
                     pagamento.setPagamentoStrategy(pagamentoCartao2);
                     pedido1.nextStatus();
@@ -104,6 +123,7 @@ public class TelaPagamento extends JFrame {
                     telaFinalizadora.strategyField.setText(pagamentoSelecionado2);
 
                     telaFinalizadora.valorField.setText(String.valueOf(valor));
+                    telaFinalizadora.PanelCred.setVisible(false);
                     telaFinalizadora.finalizarButton.addMouseListener(new MouseAdapter() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
@@ -111,13 +131,20 @@ public class TelaPagamento extends JFrame {
 
                             TelaAcomp telaAcomp = new TelaAcomp();
                             telaAcomp.setContentPane(telaAcomp.panel3);
-                            telaAcomp.setSize(400, 400);
+                            telaAcomp.setSize(600, 400);
                             telaAcomp.setVisible(true);
+
+                            while (telaAcomp.progressBar1.getPercentComplete()==100){
+                                telaAcomp.cont++;
+                                telaAcomp.progressBar1.setValue(telaAcomp.cont);
+                            }
 
                             pedido1.nextStatus();
                             telaAcomp.statusField.setText(pedido1.getStatus().printStatus());
                             telaAcomp.idField.setText(String.valueOf(pedido1.getId()));
                             telaAcomp.pagamentoField.setText(pagamento.executeStrategy(valor));
+                            telaFinalizadora.dispose();
+                            dispose();
                         }
                     });
                     break;
@@ -128,12 +155,8 @@ public class TelaPagamento extends JFrame {
         cancelarButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                TelaPedidos telapedidos = new TelaPedidos();
-                telapedidos.setContentPane(telapedidos.panel1);
-                telapedidos.setTitle("Acompanha");
-                telapedidos.setSize(400,400);
-                telapedidos.setVisible(true);
-                telapedidos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                Pedido pedido1 = pedidoRepo.getCurrentInstance().ler(0);
+                pedido1.previousStatus();
                 dispose();
             }
         });

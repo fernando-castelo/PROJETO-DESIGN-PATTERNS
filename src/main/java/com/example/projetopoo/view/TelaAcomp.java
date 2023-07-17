@@ -15,6 +15,7 @@ public class TelaAcomp extends JFrame {
     public JLabel idField;
     public JLabel pagamentoField;
     public PedidoRepository pedidoRepo;
+    public int cont =0;
 
 
     public TelaAcomp() {
@@ -26,6 +27,7 @@ public class TelaAcomp extends JFrame {
             telaEnd.setTitle("Inicio");
             telaEnd.setSize(400,400);
             telaEnd.setVisible(true);
+            cont=0;
             telaEnd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
             Pedido pedido = pedidoRepo.getCurrentInstance().ler(Integer.parseInt(idField.getText()));
