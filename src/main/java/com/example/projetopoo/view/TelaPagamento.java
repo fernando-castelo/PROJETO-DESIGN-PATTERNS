@@ -63,10 +63,6 @@ public class TelaPagamento extends JFrame {
                             telaAcomp.idField.setText(String.valueOf(pedido1.getId()));
                             telaAcomp.pagamentoField.setText(pagamento.executeStrategy(valor));
                             telaFinalizadora.dispose();
-                            while (telaAcomp.progressBar1.getPercentComplete()==100){
-                                telaAcomp.cont++;
-                                telaAcomp.progressBar1.setValue(telaAcomp.cont);
-                            }
                             dispose();
 
                         }
@@ -102,10 +98,6 @@ public class TelaPagamento extends JFrame {
                             telaAcomp.idField.setText(String.valueOf(pedido1.getId()));
                             telaAcomp.pagamentoField.setText(pagamento.executeStrategy(valor));
                             telaFinalizadora.dispose();
-                            while (telaAcomp.progressBar1.getPercentComplete()==100){
-                                telaAcomp.cont++;
-                                telaAcomp.progressBar1.setValue(telaAcomp.cont);
-                            }
                             dispose();
 
                         }
@@ -134,10 +126,6 @@ public class TelaPagamento extends JFrame {
                             telaAcomp.setSize(600, 400);
                             telaAcomp.setVisible(true);
 
-                            while (telaAcomp.progressBar1.getPercentComplete()==100){
-                                telaAcomp.cont++;
-                                telaAcomp.progressBar1.setValue(telaAcomp.cont);
-                            }
 
                             pedido1.nextStatus();
                             telaAcomp.statusField.setText(pedido1.getStatus().printStatus());
